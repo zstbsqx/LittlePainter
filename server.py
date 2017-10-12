@@ -11,4 +11,5 @@ app = Flask(__name__)
 def index():
     return send_from_directory(static_dir, 'index.html')
 
-app.run('0.0.0.0', 8004)
+if __name__ == '__main__':
+    app.run('0.0.0.0', 8004)
