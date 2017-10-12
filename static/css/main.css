@@ -39,6 +39,12 @@ input[type=text] {
     margin-bottom: 6%;
 }
 
+#download-btn {
+    font-size: 30px;
+    width: 200px;
+    height: 80px;
+}
+
 .square {
     position: relative;
     padding-bottom: 100% !important;

@@ -1,13 +1,12 @@
 // 就这么喜欢撸码吗？你这个小码农！
 
 (function() {
-    "use strict";
-
     console.log('loading...');
     const $ = ((selector) => document.querySelector(selector));
     const $$ = ((selector) => document.querySelectorAll(selector));
     const word1 = $('#word1');
     const word2 = $('#word2');
+    const downloadLink = $('#download-link');
 
     /* A wrapper */
     class Timer {
@@ -98,6 +97,9 @@
             this.canvas.height = yoffset2 + size2;
 
             let ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            ctx.fillStyle = 'black';
             ctx.textAlign = 'center';
             ctx.drawImage(posture.imgElem, 40, 20, fixedImageWidth, fixedImageHeight);
             ctx.font = `${size1}px SimHei`;
@@ -131,10 +133,24 @@
         };
     }
 
+    function makeHash(s) {
+      let hash = 0, i, chr;
+      if (s.length === 0) return hash;
+      for (i = 0; i < s.length; i++) {
+        chr   = s.charCodeAt(i);
+        hash  = ((hash << 5) - hash) + chr;
+        hash |= 0; // Convert to 32bit integer
+      }
+      return hash;
+    };
+
     // refresh function
     function refreshCanvas() {
         console.log('refreshing');
         painter.paint(selectedPosture, word1.value || word1.placeholder, word2.value || word2.placeholder);
+        let dataURL = this.canvas.toDataURL('image/jpeg');
+        downloadLink.href = dataURL;
+        downloadLink.download = `${makeHash(dataURL)}.jpg`;
     }
 
     function selectPosture(posture) {
