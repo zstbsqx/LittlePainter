@@ -51,6 +51,7 @@
 
         setSelected() {
             if (selectedPosture === this) {
+                console.log('same picture');
                 return;
             }
             if (selectedPosture) {
@@ -75,6 +76,9 @@
         }
 
         paint(posture, str1, str2) {
+            if (!posture || !str1 || !str2) {
+                return;
+            }
             let sentence1 = `就这么喜欢${str1}吗`;
             let sentence2 = `你这个${str2}`;
 
@@ -115,7 +119,17 @@
     let postures = Array.from($$('.posture')).map((elem) => new Posture(elem));
     // choose a posture randomly
     let randomPosture = postures[Math.floor(Math.random() * postures.length)];
-    selectPosture(randomPosture);
+
+    if (randomPosture.imgElem.complete) {
+        console.log('img loaded');
+        selectPosture(randomPosture);
+    } else {
+        console.log('img not loaded');
+        randomPosture.imgElem.onload = function () {
+            console.log('finally loaded');
+            selectPosture(randomPosture);
+        };
+    }
 
     // refresh function
     function refreshCanvas() {
@@ -140,7 +154,6 @@
     for (let postureElem of $$('.posture')) {
         postureElem.addEventListener('click', handleSelect);
     }
-
 
     console.log('loaded');
 })();
