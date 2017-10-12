@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小画家</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="static/js/main.js" defer></script>
+</head>
+<body>
+    <div id="main" class="container">
+        <div class="row">
+            <div id="postures" class="col-xs-3">
+                <div class="thumbnail square posture">
+                    <img src="static/img/1.jpg">
+                </div>
+                <div class="thumbnail square posture">
+                    <img src="static/img/2.jpg">
+                </div>
+                <div class="thumbnail square posture">
+                    <img src="static/img/3.jpg">
+                </div>
+                <div class="thumbnail square posture">
+                    <img src="static/img/4.jpg">
+                </div>
+            </div>
+            <div class="col-xs-9 text-center">
+                <canvas id="canvas" width="400px" height="400px">换个支持HTML5 Canvas的浏览器来玩吧</canvas>
+                <div id="text" class="align-bottom">
+                    <div id="sentence1">就这么喜欢<input id="word1" type="text" placeholder="画图">吗</div>
+                    <br>
+                    <div id="sentence2">你这个<input id="word2" type="text" placeholder="小画家"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

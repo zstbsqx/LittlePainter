@@ -1,0 +1,58 @@
+body {
+    background-color: aliceblue !important;
+}
+
+input[type=text] {
+    text-align: center;
+    width: 5em;
+}
+
+#sentence1 {
+    font-family: "SimHei", "Arial", sans-serif;
+    font-size: 30px;
+}
+
+#sentence2 {
+    font-family: "SimHei", "Arial", sans-serif;
+    font-size: 40px;
+}
+
+#main {
+    padding: 16px;
+}
+
+#postures {
+    padding: 10px;
+    height: auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#canvas {
+    background-color: white;
+    border-radius: 5px;
+}
+
+#text {
+    line-height: 150%;
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.square {
+    position: relative;
+    padding-bottom: 100% !important;
+}
+
+.square > img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.selected {
+    border: 2px #5dd8ff solid !important;
+    transition: border 2s;
+}
